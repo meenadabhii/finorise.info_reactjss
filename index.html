@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>finorise.info</title>
+  <link href="./output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+  <script>
+    (function () {
+      // Initialize googletag if not already defined
+      window.googletag = window.googletag || { cmd: [] };
+
+      // Ad slot variables
+      let adSlot1, adSlot2, anchorSlot;
+      const refreshInterval = 30000; // 30 seconds - more user-friendly refresh rate
+      let refreshTimer;
+
+      // Function to set up ads
+      function setupAds() {
+        googletag.cmd.push(function () {
+          // Setup PubAds
+          const pubads = googletag.pubads();
+          pubads.enableSingleRequest();
+          pubads.setCentering(true);
+
+          // Apply geotargeting if available
+          if (window.geoTarget) {
+            pubads.setLocation(window.geoTarget);
+          }
+
+          // Define Ad Slots with consistent IDs
+          adSlot1 = googletag.defineSlot(
+            '/23270265301/sahajanand_finorise.info_native',
+            [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+            'ad-slot-1'
+          ).addService(pubads);
+
+          adSlot2 = googletag.defineSlot(
+            '/23270265301/sahajanand_finorise.info_native',
+            [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+            'ad-slot-2'
+          ).addService(pubads);
+
+          // Define anchor ad with proper ID
+          anchorSlot = googletag.defineOutOfPageSlot(
+            '/23270265301/sahajanand_finorise.info_native',
+            googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+          );
+
+          if (anchorSlot) {
+            anchorSlot.addService(pubads);
+            // Use the correct ID for the anchor ad
+            anchorSlot.setElementId('ad-anchor-slot');
+          }
+
+          // Event listeners for ad loading
+          pubads.addEventListener('slotRenderEnded', function (event) {
+            // Handle ad render events if needed
+            const slotId = event.slot.getSlotElementId();
+            const isEmpty = event.isEmpty;
+
+            // Example: hide containers with no ads
+            if (isEmpty && document.getElementById(slotId)) {
+              document.getElementById(slotId).style.display = 'none';
+            }
+          });
+
+          // Enable services
+          googletag.enableServices();
+
+          // Display ads
+          try {
+            if (document.getElementById('ad-slot-1')) {
+              googletag.display('ad-slot-1');
+            }
+            if (document.getElementById('ad-slot-2')) {
+              googletag.display('ad-slot-2');
+            }
+            if (document.getElementById('ad-anchor-slot')) {
+              googletag.display('ad-anchor-slot');
+            }
+          } catch (error) {
+            console.log('Error displaying ads:', error);
+          }
+
+          // Set up periodic refresh with error handling
+          setupAdRefresh();
+        });
+      }
+
+      // Function to handle ad refresh
+      function setupAdRefresh() {
+        if (refreshTimer) {
+          clearInterval(refreshTimer);
+        }
+
+        refreshTimer = setInterval(function () {
+          try {
+            // Only refresh if slots exist and are defined
+            const slotsToRefresh = [];
+            if (adSlot1) slotsToRefresh.push(adSlot1);
+            if (adSlot2) slotsToRefresh.push(adSlot2);
+
+            if (slotsToRefresh.length > 0) {
+              googletag.cmd.push(function () {
+                googletag.pubads().refresh(slotsToRefresh);
+              });
+            }
+          } catch (error) {
+            console.log('Error refreshing ads:', error);
+            clearInterval(refreshTimer); // Stop trying on persistent errors
+          }
+        }, refreshInterval);
+      }
+
+      // Check for ad blockers (simple detection)
+      function checkAdBlocker() {
+        const testAd = document.createElement('div');
+        testAd.innerHTML = '&nbsp;';
+        testAd.className = 'adsbox';
+        document.body.appendChild(testAd);
+
+        setTimeout(function () {
+          if (testAd.offsetHeight === 0) {
+            console.log('Ad blocker detected');
+            // You can show a message to users or implement fallback content
+          }
+          document.body.removeChild(testAd);
+        }, 100);
+      }
+
+      // Initialize ads when DOM is ready
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setupAds();
+        checkAdBlocker();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          setupAds();
+          checkAdBlocker();
+        });
+      }
+   
+      // Clean up on page unload
+      window.addEventListener('beforeunload', function () {
+        if (refreshTimer) {
+          clearInterval(refreshTimer);
+        }
+      });
+    })();
+
+  </script>
+
+
+
+  <style>
+    #banner-ad {
+      width: 100%;
+      max-width: 425px;
+      margin: 1rem auto 0.5rem;
+      padding: 0.5rem;
+    
+      box-shadow: 0 4px 15px var(--shadow-dark);
+      border-radius: 8px;
+      position: relative;
+      text-align: center;
+      border: 1px solid var(--accent-gold);
+    }
+
+    #banner-ad::before {
+      content: "Advertisement";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent-gold);
+      background: var(--primary-dark);
+      padding: 0 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .ad-divider {
+      width: 90%;
+      max-width: 425px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      margin: 0.5rem auto;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 425px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #0d001a 0%, #1a0033 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 40px var(--shadow-dark);
+      border-left: 1px solid var(--accent-gold);
+      border-right: 1px solid var(--accent-gold);
+    }
+
+   
+    */ .tab-content.active {
+      display: block;
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px var(--shadow-light);
+      font-family: 'Orbitron', sans-serif;
+    }
+  </style>
+
+
+
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white px-4 py-8">
+  <div class="max-w-4xl mx-auto">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold text-blue-900 mb-3">
+        finorise.info
+      </h1>
+      <p class="text-lg text-gray-600">
+        Protecting what matters most - Compare and buy insurance from top
+        providers worldwide
+      </p>
+    </header>
+
+    <!-- ads  -->
+    <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-1" class="ad-container"></div>
+
+    </div>
+
+    <!-- Why Insurance is Essential -->
+    <section class="bg-white rounded-xl shadow-xl overflow-hidden mb-10">
+      <div class="p-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">
+          Why Insurance is Essential?
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-4 text-blue-800">
+              Key Benefits of Insurance:
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>Financial protection against unexpected losses</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>Peace of mind knowing you're covered</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>
+                  Legal requirement for certain assets (like cars)
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>Tax benefits in many countries</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>Support during medical emergencies</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>
+                  Asset protection for your home, car, and valuables
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>
+                  Business continuity protection for entrepreneurs
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2">✓</span>
+                <span>
+                  Income replacement during disability or unemployment
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4 text-blue-800">
+              Did You Know?
+            </h3>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+              <p class="mb-3">
+                The global insurance market was valued at <strong>$5.5 trillion</strong> in 2022.
+              </p>
+              <p>
+                Health insurance accounts for <strong>55%</strong> of all
+                insurance premiums worldwide.
+              </p>
+            </div>
+            <div class="bg-green-50 p-4 rounded-lg mb-4">
+              <p class="mb-3">
+                Insurance penetration is highest in Taiwan at 20.3% of GDP.
+              </p>
+              <p>
+                The first insurance company in America was founded in 1732.
+              </p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <p class="mb-3">
+                Cyber insurance grew by 60% in 2022 due to increasing
+                digital threats.
+              </p>
+              <p>
+                Pet insurance is the fastest growing insurance sector
+                globally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ads slot 2 -->
+    <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-2" class="ad-container"></div>
+
+    </div>
+    <!-- Insurance Types -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Comprehensive Insurance Guide
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Life Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Provides financial protection to your family after your death. Types include
+            term life, whole life, and endowment policies. Term life offers coverage for specific periods while whole
+            life provides lifelong protection with cash value accumulation.</p>
+          <p class="text-sm text-gray-500 mb-2">Average cost: $26/month for term life | Payouts are generally tax-free
+            to beneficiaries</p>
+          <p class="text-xs text-blue-600 font-medium">Consider 10-12x your annual income for coverage amount</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Health Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Covers medical expenses including hospitalization, surgeries, and sometimes
+            preventive care. Can include prescription coverage, mental health services, and maternity care. Important to
+            understand deductibles, copays, and out-of-pocket maximums.</p>
+          <p class="text-sm text-gray-500 mb-2">87% of Americans have health coverage | Average annual premium: $7,739
+            for single coverage</p>
+          <p class="text-xs text-blue-600 font-medium">Review network providers before choosing a plan</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Auto Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Mandatory in most countries, covers vehicle damage and liability in accidents.
+            Typically includes collision, comprehensive, liability, and uninsured motorist coverage. Some policies offer
+            rental car reimbursement and roadside assistance.</p>
+          <p class="text-sm text-gray-500 mb-2">Average US premium: $1,674/year | Minimum coverage varies by state</p>
+          <p class="text-xs text-blue-600 font-medium">Bundle with home insurance for discounts</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Home Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Protects your home against damage from fire, theft, natural disasters, and more.
+            Covers both the physical structure and personal belongings. Includes liability protection and additional
+            living expenses if home becomes uninhabitable.</p>
+          <p class="text-sm text-gray-500 mb-2">Average annual premium: $1,272 | Most policies exclude floods and
+            earthquakes</p>
+          <p class="text-xs text-blue-600 font-medium">Document possessions with photos/video for claims</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Travel Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Covers trip cancellations, medical emergencies abroad, lost luggage, and more.
+            Can include emergency evacuation and 24/7 assistance services. Some credit cards offer basic travel
+            insurance benefits automatically.</p>
+          <p class="text-sm text-gray-500 mb-2">Costs 4-10% of trip value | Medical coverage is crucial for
+            international travel</p>
+          <p class="text-xs text-blue-600 font-medium">Purchase soon after booking to maximize cancellation benefits</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Business Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Protects companies from losses due to events like property damage or lawsuits.
+            Common types include general liability, professional liability, workers' compensation, and commercial
+            property insurance. Cyber insurance is increasingly important.</p>
+          <p class="text-sm text-gray-500 mb-2">60% of small businesses are underinsured | 40% never reopen after major
+            loss</p>
+          <p class="text-xs text-blue-600 font-medium">Assess risks specific to your industry</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Disability Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Provides income replacement if you become unable to work due to illness or
+            injury. Short-term covers temporary disabilities while long-term covers extended periods. Social Security
+            disability has strict eligibility requirements.</p>
+          <p class="text-sm text-gray-500 mb-2">1 in 4 workers will become disabled before retirement | Average benefit:
+            60% of income</p>
+          <p class="text-xs text-blue-600 font-medium">Own-occupation coverage provides best protection</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Pet Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Helps cover veterinary expenses for your pets. Can include accidents, illnesses,
+            and sometimes wellness care. Some policies cover alternative therapies and behavioral treatments.
+            Pre-existing conditions typically excluded.</p>
+          <p class="text-sm text-gray-500 mb-2">Average monthly cost: $50 for dogs, $28 for cats | 3.45 million pets
+            insured in North America</p>
+          <p class="text-xs text-blue-600 font-medium">Enroll pets while they're young and healthy</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Flood Insurance
+          </h3>
+          <p class="text-gray-700 mb-3">Separate policy needed as standard home insurance excludes floods. Covers damage
+            from overflowing rivers, heavy rains, storm surges, and melting snow. Important even if not in high-risk
+            flood zones.</p>
+          <p class="text-sm text-gray-500 mb-2">Just 1 inch of water can cause $25,000 in damage | 20% of claims come
+            from moderate-risk areas</p>
+          <p class="text-xs text-blue-600 font-medium">30-day waiting period typically applies</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance FAQs -->
+    <section class="bg-white rounded-xl shadow-md p-8 mb-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Frequently Asked Questions
+      </h2>
+      <div class="space-y-6">
+        <div class="border-b pb-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">
+            How much insurance coverage do I really need?
+          </h3>
+          <p class="text-gray-700">Coverage needs vary by individual circumstances. For life insurance, financial
+            advisors typically recommend 10-12 times your annual income. Home insurance should cover full replacement
+            cost of your property. Auto insurance minimums are set by states but often higher coverage is advisable.</p>
+        </div>
+        <div class="border-b pb-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">
+            What factors affect my insurance premiums?
+          </h3>
+          <p class="text-gray-700">Premiums are based on risk assessment. For auto insurance: driving record, vehicle
+            type, age, and location. Health insurance: age, tobacco use, and plan type. Home insurance: property value,
+            location, and claims history. Life insurance: age, health, and lifestyle factors.</p>
+        </div>
+        <div class="border-b pb-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">
+            Can I change my insurance policy after purchase?
+          </h3>
+          <p class="text-gray-700">Most policies allow changes, often called endorsements. You can typically
+            increase/decrease coverage, add/remove drivers (auto), or change beneficiaries (life). Some changes may
+            require underwriting approval. There may be fees for mid-term adjustments.</p>
+        </div>
+        <div class="border-b pb-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">
+            What's the difference between deductible and premium?
+          </h3>
+          <p class="text-gray-700">Premium is the amount you pay regularly (monthly/annually) to maintain coverage.
+            Deductible is what you pay out-of-pocket before insurance pays on a claim. Generally, higher deductibles
+            mean lower premiums and vice versa.</p>
+        </div>
+        <div class="pb-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">
+            How do I file an insurance claim?
+          </h3>
+          <p class="text-gray-700">Contact your insurer immediately after an incident. For auto claims: document the
+            scene, get police reports if applicable. For property claims: take photos of damage, make temporary repairs
+            to prevent further damage. For health claims: ensure providers have your current insurance information.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Tips -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Smart Insurance Tips
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">
+            Saving Money
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              • Bundle multiple policies with one insurer for discounts (up
+              to 25%)
+            </li>
+            <li>
+              • Increase deductibles to lower premiums (if you can afford
+              the higher out-of-pocket)
+            </li>
+            <li>• Maintain good credit (used for rating in most states)</li>
+            <li>
+              • Ask about all available discounts (safe driver, good
+              student, etc.)
+            </li>
+            <li>• Review coverage annually as needs change</li>
+            <li>• Consider usage-based auto insurance if you drive less</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 p-6 rounded-xl">
+          <h3 class="text-xl font-semibold mb-3 text-green-800">
+            Claims Process
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              • Document everything with photos/video before and after
+              incidents
+            </li>
+            <li>
+              • Report claims promptly (delays can complicate processing)
+            </li>
+            <li>• Keep detailed records of all communications</li>
+            <li>• Understand your policy's claims timeline requirements</li>
+            <li>• Get multiple repair estimates when possible</li>
+            <li>• Know your rights regarding claim disputes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ads  -->
+    <div id="ad-anchor-slot"></div>
+
+    <script>
+      // Disable right-click
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert('Right-click is disabled to protect our content.');
+      });
+
+      // Disable keyboard shortcuts
+      document.onkeydown = function (e) {
+        if (
+          (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c' || e.key === 'i' || e.key === 'j')) ||
+          e.key === 'F12' ||
+          (e.metaKey && e.altKey && e.key === 'i')
+        ) {
+          e.preventDefault();
+          alert('Access to developer tools and source code is disabled to protect our content.');
+          return false;
+        }
+        return true;
+      };
+
+      // Disable text selection
+      document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+      });
+
+      // Disable drag and drop
+      document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+      });
+    </script>
+
+    <script>
+      window.googletag = window.googletag || { cmd: [] };
+      var anchorSlot;
+      googletag.cmd.push(function () {
+        anchorSlot = googletag.defineOutOfPageSlot('/23270265301/sahajanand_finorise.info_native', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+        if (anchorSlot) {
+          anchorSlot.addService(googletag.pubads());
+        }
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    </script>
+
+    <script>
+      (function () {
+        document.addEventListener("DOMContentLoaded", function () {
+          console.log("DOM fully loaded.");
+
+          function showRewardedAd() {
+            if (!window.googletag || !googletag.cmd) {
+              console.error("Google Ad Manager is not properly initialized.");
+              return;
+            }
+            // reward ads
+            googletag.cmd.push(function () {
+              try {
+                const rewardedSlot = googletag
+                  .defineOutOfPageSlot('/23270265301/sahajanand_finorise.info_rewarded', googletag.enums.OutOfPageFormat.REWARDED)
+                  .addService(googletag.pubads());
+
+                googletag.enableServices();
+                googletag.display(rewardedSlot);
+                console.log("Attempting to display rewarded ad...");
+
+                googletag.pubads().addEventListener("rewardedSlotReady", function (evt) {
+                  console.log("Rewarded ad ready.");
+                  evt.makeRewardedVisible();
+                });
+
+                googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+                  console.log("Ad closed.");
+                  googletag.destroySlots([rewardedSlot]);
+                });
+              } catch (error) {
+                console.error("Error during ad setup:", error);
+              }
+            });
+          }
+
+          // Add 2-second delay before showing the rewarded ad
+          setTimeout(function () {
+            // console.log("2 seconds elapsed, showing rewarded ad...");
+            // showRewardedAd();
+          }, 2000); // 2000 milliseconds = 2 seconds
+        });
+      })();
+    </script>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-600 text-sm py-6">
+      <p>© 2023 Global Insurance Marketplace. All rights reserved.</p>
+      <p class="mt-2">
+        By using our service, you agree to our Terms and Privacy Policy
+      </p>
+      <div class="mt-4 flex justify-center space-x-6">
+        <a href="page3.html" class="text-blue-600 hover:underline">
+          Select country
+        </a>
+        <a href="page2.html" class="text-blue-600 hover:underline">
+          Explore insurance
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

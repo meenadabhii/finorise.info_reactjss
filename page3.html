@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>finorise.info</title>
+  <link href="./output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        color: var(--text-light);
+    }
+    .game-info {
+            width: 100%;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+  
+    .header {
+        background: rgba(243, 242, 245, 0.95);
+        backdrop-filter: blur(15px);
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 5px 25px var(--shadow-dark);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        border-bottom: 3px solid var(--accent-gold);
+    }
+
+    .header-content {
+        width: 100%;
+        max-width: 425px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1.5rem;
+    }
+
+
+
+    #banner-ad {
+        width: 100%;
+        max-width: 425px;
+        margin: 1rem auto 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 0 4px 15px var(--shadow-dark);
+        border-radius: 8px;
+        position: relative;
+        text-align: center;
+        border: 1px solid var(--accent-gold);
+    }
+
+    #banner-ad::before {
+        content: "Advertisement";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--accent-gold);
+        background: var(--primary-dark);
+        padding: 0 8px;
+        border-radius: 4px;
+        border: 1px solid var(--accent-gold);
+    }
+
+    .ad-divider {
+        width: 90%;
+        max-width: 425px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        margin: 0.5rem auto;
+    }
+
+    
+
+</style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white px-4 py-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-blue-900 mb-4">
+        finorise.info
+      </h1>
+      <p class="text-xl text-gray-600">
+        Compare insurance options, regulations and providers across
+        countries worldwide
+      </p>
+      <div class="mt-6">
+        <button
+          class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium text-lg transition duration-200 shadow-lg mr-4"
+          onclick="window.location.href='index.html'">
+          Get Country-Specific Advice
+        </button>
+        <button
+          class="bg-white hover:bg-gray-100 text-blue-600 py-3 px-8 rounded-lg font-medium text-lg transition duration-200 shadow-lg border border-blue-200"
+          onclick="window.location.href='index.html'">
+          Compare Insurance Types
+        </button>
+      </div>
+    </header>
+
+    <!-- ads  -->
+    <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-1" class="ad-container"></div>
+
+    </div>
+
+    <!-- Country Selection -->
+    <section class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">
+          Country-Specific Insurance Information
+        </h2>
+        <div class="relative w-64">
+          <input type="text" placeholder="Search countries..."
+            class="w-full pl-4 pr-10 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <svg class="absolute right-3 top-2.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- United States -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-200 cursor-pointer border border-gray-100">
+          <div class="flex items-center p-6 border-b">
+            <img src="https://flagcdn.com/w40/us.png" alt="United States"
+              class="w-12 h-12 rounded-full object-cover mr-4 border" />
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                United States
+              </h3>
+              <p class="text-sm text-gray-500">
+                $1.5 trillion (largest insurance market globally)
+              </p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">The US has a mixed public-private insurance system with complex regulations
+              varying by state. Healthcare costs are among the highest in the world, making insurance essential.</p>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Top Providers:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  UnitedHealth
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Anthem
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Kaiser Permanente
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  State Farm
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Allstate
+                </span>
+                <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                  +5 more
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Unique Aspects:
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">ACA (Obamacare) marketplace plans</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Employer-sponsored health insurance common</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">High deductible plans with HSAs</span>
+                </li>
+                <li class="text-sm text-gray-500">
+                  +3 more unique features
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <span class="inline-block bg-green-50 text-green-800 text-xs px-2 py-1 rounded">
+                Regulated by: HIPAA governs privacy
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- United Kingdom -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-200 cursor-pointer border border-gray-100">
+          <div class="flex items-center p-6 border-b">
+            <img src="https://flagcdn.com/w40/gb.png" alt="United Kingdom"
+              class="w-12 h-12 rounded-full object-cover mr-4 border" />
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                United Kingdom
+              </h3>
+              <p class="text-sm text-gray-500">
+                £250 billion annually
+              </p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">The UK has the NHS for basic healthcare, with private insurance for faster
+              access and additional services. Insurance penetration is high with strong consumer protections.</p>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Top Providers:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Aviva
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Bupa
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  AXA PPP
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  VitalityHealth
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Direct Line
+                </span>
+                <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                  +5 more
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Unique Aspects:
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Often supplements NHS services</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Common for dental and optical coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Travel insurance widely used</span>
+                </li>
+                <li class="text-sm text-gray-500">
+                  +3 more unique features
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <span class="inline-block bg-green-50 text-green-800 text-xs px-2 py-1 rounded">
+                Regulated by: PRA and FCA
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Germany -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-200 cursor-pointer border border-gray-100">
+          <div class="flex items-center p-6 border-b">
+            <img src="https://flagcdn.com/w40/de.png" alt="Germany"
+              class="w-12 h-12 rounded-full object-cover mr-4 border" />
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                Germany
+              </h3>
+              <p class="text-sm text-gray-500">
+                €240 billion in premiums
+              </p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">Germany has a compulsory health insurance system with both public and private
+              options. The system is known for its efficiency and comprehensive coverage requirements.</p>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Top Providers:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Allianz
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  TK
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  AOK
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Debeka
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  HUK-Coburg
+                </span>
+                <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                  +5 more
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Unique Aspects:
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Statutory health insurance (GKV)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Private insurance for higher earners</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Long-term care insurance mandatory</span>
+                </li>
+                <li class="text-sm text-gray-500">
+                  +3 more unique features
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <span class="inline-block bg-green-50 text-green-800 text-xs px-2 py-1 rounded">
+                Regulated by: BaFin
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- India -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-200 cursor-pointer border border-gray-100">
+          <div class="flex items-center p-6 border-b">
+            <img src="https://flagcdn.com/w40/in.png" alt="India"
+              class="w-12 h-12 rounded-full object-cover mr-4 border" />
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                India
+              </h3>
+              <p class="text-sm text-gray-500">
+                $130 billion market (projected to double by 2025)
+              </p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">India has a growing insurance market with increasing penetration in health and
+              life insurance. The government is pushing for universal coverage through various schemes.</p>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Top Providers:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  LIC
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  ICICI Lombard
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  HDFC Ergo
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Bajaj Allianz
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  SBI Life
+                </span>
+                <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                  +5 more
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Unique Aspects:
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Government schemes like Ayushman Bharat</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Motor insurance compulsory</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Microinsurance products available</span>
+                </li>
+                <li class="text-sm text-gray-500">
+                  +3 more unique features
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <span class="inline-block bg-green-50 text-green-800 text-xs px-2 py-1 rounded">
+                Regulated by: IRDAI
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- China -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-200 cursor-pointer border border-gray-100">
+          <div class="flex items-center p-6 border-b">
+            <img src="https://flagcdn.com/w40/cn.png" alt="China"
+              class="w-12 h-12 rounded-full object-cover mr-4 border" />
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                China
+              </h3>
+              <p class="text-sm text-gray-500">
+                ¥4.5 trillion (second largest globally)
+              </p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">China's insurance market is rapidly expanding with government support and
+              increasing consumer awareness. Digital adoption is transforming the industry.</p>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Top Providers:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Ping An
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  China Life
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  CPIC
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  People's Insurance
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  China Taiping
+                </span>
+                <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                  +5 more
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Unique Aspects:
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Basic medical insurance covers 95% population</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Growing middle class driving demand</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Digital insurance platforms booming</span>
+                </li>
+                <li class="text-sm text-gray-500">
+                  +3 more unique features
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <span class="inline-block bg-green-50 text-green-800 text-xs px-2 py-1 rounded">
+                Regulated by: CBIRC
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- UAE -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-200 cursor-pointer border border-gray-100">
+          <div class="flex items-center p-6 border-b">
+            <img src="https://flagcdn.com/w40/ae.png" alt="United Arab Emirates"
+              class="w-12 h-12 rounded-full object-cover mr-4 border" />
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                United Arab Emirates
+              </h3>
+              <p class="text-sm text-gray-500">
+                $15 billion market
+              </p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">The UAE mandates health insurance for all residents, with different
+              requirements by emirate. The market is sophisticated with many international providers.</p>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Top Providers:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Oman Insurance
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  Daman
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  AXA Gulf
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  RSA
+                </span>
+                <span class="text-xs bg-blue-50 text-blue-800 px-3 py-1 rounded-full">
+                  MetLife
+                </span>
+                <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                  +5 more
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="font-medium text-gray-900 mb-2">
+                Unique Aspects:
+              </h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Abu Dhabi requires employer-provided coverage</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">Dubai has the Essential Benefits Plan</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm">High expat population drives demand</span>
+                </li>
+                <li class="text-sm text-gray-500">
+                  +3 more unique features
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-4 pt-4 border-t">
+              <span class="inline-block bg-green-50 text-green-800 text-xs px-2 py-1 rounded">
+                Regulated by: Central Bank
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Insurance Trends -->
+    <section class="bg-white rounded-xl shadow-md p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Global Insurance Trends 2023-2025
+      </h2>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="min-w-full">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-3 px-4 text-left">Insurance Type</th>
+              <th class="py-3 px-4 text-left">Global Trends</th>
+              <th class="py-3 px-4 text-left">Best For</th>
+              <th class="py-3 px-4 text-left">Coverage Options</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <!-- Health Insurance -->
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium">Health Insurance</td>
+              <td class="py-3 px-4">Growing at 5.8% CAGR due to rising medical costs and aging populations. Digital
+                health services integration increasing.</td>
+              <td class="py-3 px-4">Families, seniors, those with chronic conditions, self-employed</td>
+              <td class="py-3 px-4">
+                <div class="flex flex-wrap gap-1">
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Inpatient
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Outpatient
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Prescription drugs
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    +3
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Life Insurance -->
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium">Life Insurance</td>
+              <td class="py-3 px-4">Term life gaining popularity over whole life for affordability. Simplified issue
+                products growing. Bancassurance expanding in developing markets.</td>
+              <td class="py-3 px-4">Primary earners, parents, those with dependents, business owners</td>
+              <td class="py-3 px-4">
+                <div class="flex flex-wrap gap-1">
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Term life
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Whole life
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Universal life
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    +3
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Auto Insurance -->
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium">Auto Insurance</td>
+              <td class="py-3 px-4">Usage-based insurance growing with telematics adoption. EV-specific products
+                emerging. Claims automation increasing.</td>
+              <td class="py-3 px-4">All vehicle owners (mandatory in most countries), fleet operators, rideshare drivers
+              </td>
+              <td class="py-3 px-4">
+                <div class="flex flex-wrap gap-1">
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Third-party liability
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Comprehensive
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Collision
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    +3
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Property Insurance -->
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium">Property Insurance</td>
+              <td class="py-3 px-4">Increasing demand due to climate change risks. Parametric insurance growing for
+                natural disasters. Smart home discounts expanding.</td>
+              <td class="py-3 px-4">Homeowners, landlords, renters (for contents), condo owners</td>
+              <td class="py-3 px-4">
+                <div class="flex flex-wrap gap-1">
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Dwelling
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Personal property
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Liability
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    +3
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Travel Insurance -->
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium">Travel Insurance</td>
+              <td class="py-3 px-4">Post-pandemic surge in comprehensive coverage demand. Cancel-for-any-reason options
+                popular. Medical evacuation focus increasing.</td>
+              <td class="py-3 px-4">International travelers, frequent flyers, expatriates, adventure tourists</td>
+              <td class="py-3 px-4">
+                <div class="flex flex-wrap gap-1">
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Trip cancellation
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Medical expenses
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Baggage loss
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    +3
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <!-- Business Insurance -->
+            <tr class="hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium">Business Insurance</td>
+              <td class="py-3 px-4">Cyber insurance fastest growing segment. Pandemic-related products emerging. Supply
+                chain coverage important.</td>
+              <td class="py-3 px-4">All businesses, especially SMEs, startups, contractors, professionals</td>
+              <td class="py-3 px-4">
+                <div class="flex flex-wrap gap-1">
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    General liability
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Professional liability
+                  </span>
+                  <span class="text-xs bg-gray-100 text-gray-800 px-2 py-0.5 rounded">
+                    Workers' comp
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    +3
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-xl font-semibold text-gray-800 mb-4 mt-8">
+        Regional Breakdown
+      </h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- North America -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
+          <h4 class="font-bold text-lg mb-2 text-blue-800">
+            North America
+          </h4>
+          <p class="text-sm text-gray-700 mb-3">Market saturation in US/Canada driving product innovation. Usage-based
+            insurance growing. Regulatory complexity increasing.</p>
+          <div class="flex justify-between text-xs">
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">
+              Market: 35% of global premiums
+            </span>
+            <span class="text-gray-500">
+              3 key aspects
+            </span>
+          </div>
+        </div>
+        <!-- Europe -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
+          <h4 class="font-bold text-lg mb-2 text-blue-800">
+            Europe
+          </h4>
+          <p class="text-sm text-gray-700 mb-3">Solvency II implementation changing capital requirements. Bancassurance
+            strong. Green insurance products emerging.</p>
+          <div class="flex justify-between text-xs">
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">
+              Market: 30% of global premiums
+            </span>
+            <span class="text-gray-500">
+              3 key aspects
+            </span>
+          </div>
+        </div>
+        <!-- Asia-Pacific -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
+          <h4 class="font-bold text-lg mb-2 text-blue-800">
+            Asia-Pacific
+          </h4>
+          <p class="text-sm text-gray-700 mb-3">Fastest growing region. Digital adoption leapfrogging traditional
+            channels. Microinsurance expanding.</p>
+          <div class="flex justify-between text-xs">
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">
+              Market: 25% and growing rapidly
+            </span>
+            <span class="text-gray-500">
+              3 key aspects
+            </span>
+          </div>
+        </div>
+        <!-- Latin America -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
+          <h4 class="font-bold text-lg mb-2 text-blue-800">
+            Latin America
+          </h4>
+          <p class="text-sm text-gray-700 mb-3">Economic volatility challenging growth. Mandatory insurance products
+            expanding. Digital channels growing.</p>
+          <div class="flex justify-between text-xs">
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">
+              Market: 5% but with high growth potential
+            </span>
+            <span class="text-gray-500">
+              3 key aspects
+            </span>
+          </div>
+        </div>
+        <!-- Middle East/Africa -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
+          <h4 class="font-bold text-lg mb-2 text-blue-800">
+            Middle East/Africa
+          </h4>
+          <p class="text-sm text-gray-700 mb-3">Islamic insurance (Takaful) growing. Energy sector insurance important.
+            Regulatory frameworks developing.</p>
+          <div class="flex justify-between text-xs">
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">
+              Market: 5% concentrated in Gulf states
+            </span>
+            <span class="text-gray-500">
+              3 key aspects
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Innovation Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Insurance Innovations Worldwide
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-md border border-blue-100">
+          <div class="text-blue-600 mb-3">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Insurtech</h3>
+          <p class="text-gray-700 mb-4">
+            Digital-first insurance companies using AI, IoT and blockchain
+            to transform traditional models.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span>Usage-based auto insurance</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span>Instant policy issuance</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span>Automated claims processing</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
+          <div class="text-green-600 mb-3">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">
+            Parametric Insurance
+          </h3>
+          <p class="text-gray-700 mb-4">
+            Policies that pay out when predefined parameters are met, rather
+            than actual loss assessments.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start">
+              <span class="text-green-500 mr-2">•</span>
+              <span>Earthquake magnitude triggers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mr-2">•</span>
+              <span>Weather index insurance</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 mr-2">•</span>
+              <span>Fast payouts without claims process</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border border-purple-100">
+          <div class="text-purple-600 mb-3">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Embedded Insurance</h3>
+          <p class="text-gray-700 mb-4">
+            Insurance products seamlessly integrated into other purchases
+            and platforms.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">•</span>
+              <span>Flight delay coverage at booking</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">•</span>
+              <span>Smartphone screen protection</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">•</span>
+              <span>Rideshare driver coverage</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 rounded-xl p-6">
+        <h3 class="text-xl font-semibold text-blue-800 mb-4">
+          Emerging Technologies in Insurance
+        </h3>
+        <div class="grid md:grid-cols-4 gap-4 text-center">
+          <div class="bg-white p-3 rounded-lg shadow-sm">
+            <div class="text-blue-600 mb-1">
+              <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-sm font-medium">AI Underwriting</span>
+          </div>
+          <div class="bg-white p-3 rounded-lg shadow-sm">
+            <div class="text-blue-600 mb-1">
+              <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-sm font-medium">Blockchain Claims</span>
+          </div>
+          <div class="bg-white p-3 rounded-lg shadow-sm">
+            <div class="text-blue-600 mb-1">
+              <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-sm font-medium">IoT Monitoring</span>
+          </div>
+          <div class="bg-white p-3 rounded-lg shadow-sm">
+            <div class="text-blue-600 mb-1">
+              <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-sm font-medium">
+              Predictive Analytics
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Buying Guide -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Global Insurance Purchasing Guide
+      </h2>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+        <div class="md:flex">
+          <div class="md:w-1/3 bg-blue-800 text-white p-6">
+            <h3 class="text-xl font-semibold mb-4">
+              Step-by-Step Guide
+            </h3>
+            <ol class="space-y-4">
+              <li class="flex items-start">
+                <span
+                  class="bg-white text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">
+                  1
+                </span>
+                <span>
+                  Assess your risks and needs based on location and
+                  lifestyle
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span
+                  class="bg-white text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">
+                  2
+                </span>
+                <span>
+                  Research mandatory coverage requirements in your country
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span
+                  class="bg-white text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">
+                  3
+                </span>
+                <span>
+                  Compare multiple quotes from local and international
+                  providers
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span
+                  class="bg-white text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">
+                  4
+                </span>
+                <span>
+                  Check insurer financial ratings and claim settlement
+                  ratios
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span
+                  class="bg-white text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">
+                  5
+                </span>
+                <span>
+                  Review policy details carefully, especially exclusions
+                </span>
+              </li>
+              <li class="flex items-start">
+                <span
+                  class="bg-white text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">
+                  6
+                </span>
+                <span>
+                  Consider add-ons and riders for complete protection
+                </span>
+              </li>
+            </ol>
+          </div>
+          <div class="md:w-2/3 p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">
+              Key Considerations by Region
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-medium text-gray-900 mb-2">
+                  North America
+                </h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      High healthcare costs make medical coverage essential
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      Auto insurance requirements vary by state/province
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      Consider umbrella policies for liability protection
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-900 mb-2">Europe</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      Check what's covered by national healthcare systems
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>Travel insurance important for EU residents</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>Home insurance often required for mortgages</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-900 mb-2">Asia</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      Check government-sponsored insurance schemes
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>Natural disaster coverage often needed</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      Digital insurance platforms widely available
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-900 mb-2">
+                  Emerging Markets
+                </h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>Microinsurance products may be available</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>Verify insurer solvency carefully</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-500 mr-2">•</span>
+                    <span>
+                      Consider international insurers with local presence
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">
+          Common Pitfalls to Avoid
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="border-l-4 border-yellow-400 pl-4">
+            <h4 class="font-medium text-gray-900 mb-2">
+              Underinsurance
+            </h4>
+            <p class="text-sm text-gray-700">
+              Many policies have sub-limits that may not cover actual costs.
+              Review coverage amounts annually.
+            </p>
+          </div>
+          <div class="border-l-4 border-yellow-400 pl-4">
+            <h4 class="font-medium text-gray-900 mb-2">
+              Policy Exclusions
+            </h4>
+            <p class="text-sm text-gray-700">
+              Pre-existing conditions, high-risk activities, and certain
+              disasters may be excluded.
+            </p>
+          </div>
+          <div class="border-l-4 border-yellow-400 pl-4">
+            <h4 class="font-medium text-gray-900 mb-2">
+              Currency Fluctuations
+            </h4>
+            <p class="text-sm text-gray-700">
+              For international policies, ensure coverage isn't eroded by
+              exchange rate changes.
+            </p>
+          </div>
+          <div class="border-l-4 border-yellow-400 pl-4">
+            <h4 class="font-medium text-gray-900 mb-2">
+              Claim Documentation
+            </h4>
+            <p class="text-sm text-gray-700">
+              Some countries require specific documentation for claims -
+              understand requirements upfront.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Statistics -->
+    <section class="bg-white rounded-xl shadow-md p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        Global Insurance Market Data
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+          <h3 class="font-semibold text-blue-800 mb-2">Market Size</h3>
+          <p class="text-3xl font-bold text-gray-800 mb-1">$5.5T</p>
+          <p class="text-sm text-gray-600">
+            Global insurance premiums (2022)
+          </p>
+          <div class="mt-2 h-2 bg-blue-200 rounded-full">
+            <div class="h-2 bg-blue-600 rounded-full" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+          <h3 class="font-semibold text-green-800 mb-2">Penetration</h3>
+          <p class="text-3xl font-bold text-gray-800 mb-1">7.2%</p>
+          <p class="text-sm text-gray-600">
+            Of global GDP (life and non-life)
+          </p>
+          <div class="mt-2 h-2 bg-green-200 rounded-full">
+            <div class="h-2 bg-green-600 rounded-full" style="width: 72%"></div>
+          </div>
+        </div>
+        <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+          <h3 class="font-semibold text-purple-800 mb-2">Growth</h3>
+          <p class="text-3xl font-bold text-gray-800 mb-1">4.8%</p>
+          <p class="text-sm text-gray-600">
+            Annual premium growth forecast (2023-2025)
+          </p>
+          <div class="mt-2 h-2 bg-purple-200 rounded-full">
+            <div class="h-2 bg-purple-600 rounded-full" style="width: 48%"></div>
+          </div>
+        </div>
+        <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
+          <h3 class="font-semibold text-orange-800 mb-2">Digital</h3>
+          <p class="text-3xl font-bold text-gray-800 mb-1">42%</p>
+          <p class="text-sm text-gray-600">
+            Of customers prefer digital channels
+          </p>
+          <div class="mt-2 h-2 bg-orange-200 rounded-full">
+            <div class="h-2 bg-orange-600 rounded-full" style="width: 42%"></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">
+        Market Leaders by Premium Volume
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-3 px-4 text-left">Country</th>
+              <th class="py-3 px-4 text-left">Life Insurance</th>
+              <th class="py-3 px-4 text-left">Non-Life Insurance</th>
+              <th class="py-3 px-4 text-left">Total Premiums</th>
+              <th class="py-3 px-4 text-left">Penetration</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="py-3 px-4 font-medium">United States</td>
+              <td class="py-3 px-4">$850B</td>
+              <td class="py-3 px-4">$950B</td>
+              <td class="py-3 px-4">$1.8T</td>
+              <td class="py-3 px-4">7.3%</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">China</td>
+              <td class="py-3 px-4">$420B</td>
+              <td class="py-3 px-4">$230B</td>
+              <td class="py-3 px-4">$650B</td>
+              <td class="py-3 px-4">4.1%</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">Japan</td>
+              <td class="py-3 px-4">$380B</td>
+              <td class="py-3 px-4">$120B</td>
+              <td class="py-3 px-4">$500B</td>
+              <td class="py-3 px-4">8.6%</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">United Kingdom</td>
+              <td class="py-3 px-4">$180B</td>
+              <td class="py-3 px-4">$150B</td>
+              <td class="py-3 px-4">$330B</td>
+              <td class="py-3 px-4">10.4%</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">Germany</td>
+              <td class="py-3 px-4">$140B</td>
+              <td class="py-3 px-4">$180B</td>
+              <td class="py-3 px-4">$320B</td>
+              <td class="py-3 px-4">6.8%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ads  -->
+    <div id="ad-anchor-slot"></div>
+
+    <script>
+      // Disable right-click
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert('Right-click is disabled to protect our content.');
+      });
+
+      // Disable keyboard shortcuts
+      document.onkeydown = function (e) {
+        if (
+          (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c' || e.key === 'i' || e.key === 'j')) ||
+          e.key === 'F12' ||
+          (e.metaKey && e.altKey && e.key === 'i')
+        ) {
+          e.preventDefault();
+          alert('Access to developer tools and source code is disabled to protect our content.');
+          return false;
+        }
+        return true;
+      };
+
+      // Disable text selection
+      document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+      });
+
+      // Disable drag and drop
+      document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+      });
+    </script>
+
+    <script>
+      window.googletag = window.googletag || { cmd: [] };
+      var anchorSlot;
+      googletag.cmd.push(function () {
+        anchorSlot = googletag.defineOutOfPageSlot('/23270265301/sahajanand_finorise.info_native', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+        if (anchorSlot) {
+          anchorSlot.addService(googletag.pubads());
+        }
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    </script>
+
+    <script>
+      (function () {
+        document.addEventListener("DOMContentLoaded", function () {
+          console.log("DOM fully loaded.");
+
+          function showRewardedAd() {
+            if (!window.googletag || !googletag.cmd) {
+              console.error("Google Ad Manager is not properly initialized.");
+              return;
+            }
+            // reward ads
+            googletag.cmd.push(function () {
+              try {
+                const rewardedSlot = googletag
+                  .defineOutOfPageSlot('/23270265301/sahajanand_finorise.info_rewarded', googletag.enums.OutOfPageFormat.REWARDED)
+                  .addService(googletag.pubads());
+
+                googletag.enableServices();
+                googletag.display(rewardedSlot);
+                console.log("Attempting to display rewarded ad...");
+
+                googletag.pubads().addEventListener("rewardedSlotReady", function (evt) {
+                  console.log("Rewarded ad ready.");
+                  evt.makeRewardedVisible();
+                });
+
+                googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+                  console.log("Ad closed.");
+                  googletag.destroySlots([rewardedSlot]);
+                });
+              } catch (error) {
+                console.error("Error during ad setup:", error);
+              }
+            });
+          }
+
+          // Add 2-second delay before showing the rewarded ad
+          setTimeout(function () {
+            console.log("2 seconds elapsed, showing rewarded ad...");
+            showRewardedAd();
+          }, 2000); // 2000 milliseconds = 2 seconds
+        });
+      })();
+    </script>
+
+
+    <!-- Call to Action -->
+    <section class="text-center bg-blue-50 rounded-xl p-8 mb-6">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4">
+        Need Help Choosing Insurance?
+      </h2>
+      <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+        Our global network of insurance experts can help you find the right
+        coverage for your needs and location.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button
+          class="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-medium text-lg transition duration-200 shadow-lg"
+          onclick="window.location.href='index.html'">
+          Get Personalized Recommendations
+        </button>
+        <button
+          class="bg-white hover:bg-gray-100 text-blue-600 py-4 px-8 rounded-lg font-medium text-lg transition duration-200 shadow-lg border border-blue-200"
+          onclick="window.location.href='index.html'">
+          Speak with an Advisor
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-600 text-sm py-6">
+      <p>© 2023 Global Insurance Marketplace. All rights reserved.</p>
+      <p class="mt-2">
+        By using our service, you agree to our Terms and Privacy Policy
+      </p>
+      <div class="mt-4 flex justify-center space-x-6">
+        <a href="page2.html" class="text-blue-600 hover:underline">
+          Explore insurance
+        </a>
+      </div>
+    </footer>
+</body>
+
+</html>

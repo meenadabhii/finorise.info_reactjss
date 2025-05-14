@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finorise.info</title>
+    <link href="./output.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+ <script>
+    (function () {
+      // Initialize googletag if not already defined
+      window.googletag = window.googletag || { cmd: [] };
+
+      // Ad slot variables
+      let adSlot1, adSlot2, anchorSlot;
+      const refreshInterval = 30000; // 30 seconds - more user-friendly refresh rate
+      let refreshTimer;
+
+      // Function to set up ads
+      function setupAds() {
+        googletag.cmd.push(function () {
+          // Setup PubAds
+          const pubads = googletag.pubads();
+          pubads.enableSingleRequest();
+          pubads.setCentering(true);
+
+          // Apply geotargeting if available
+          if (window.geoTarget) {
+            pubads.setLocation(window.geoTarget);
+          }
+
+          // Define Ad Slots with consistent IDs
+          adSlot1 = googletag.defineSlot(
+            '/23270265301/sahajanand_finorise.info_native',
+            [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+            'ad-slot-1'
+          ).addService(pubads);
+
+          adSlot2 = googletag.defineSlot(
+            '/23270265301/sahajanand_finorise.info_native',
+            [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+            'ad-slot-2'
+          ).addService(pubads);
+
+          // Define anchor ad with proper ID
+          anchorSlot = googletag.defineOutOfPageSlot(
+            '/23270265301/sahajanand_finorise.info_native',
+            googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+          );
+
+          if (anchorSlot) {
+            anchorSlot.addService(pubads);
+            // Use the correct ID for the anchor ad
+            anchorSlot.setElementId('ad-anchor-slot');
+          }
+
+          // Event listeners for ad loading
+          pubads.addEventListener('slotRenderEnded', function (event) {
+            // Handle ad render events if needed
+            const slotId = event.slot.getSlotElementId();
+            const isEmpty = event.isEmpty;
+
+            // Example: hide containers with no ads
+            if (isEmpty && document.getElementById(slotId)) {
+              document.getElementById(slotId).style.display = 'none';
+            }
+          });
+
+          // Enable services
+          googletag.enableServices();
+
+          // Display ads
+          try {
+            if (document.getElementById('ad-slot-1')) {
+              googletag.display('ad-slot-1');
+            }
+            if (document.getElementById('ad-slot-2')) {
+              googletag.display('ad-slot-2');
+            }
+            if (document.getElementById('ad-anchor-slot')) {
+              googletag.display('ad-anchor-slot');
+            }
+          } catch (error) {
+            console.log('Error displaying ads:', error);
+          }
+
+          // Set up periodic refresh with error handling
+          setupAdRefresh();
+        });
+      }
+
+      // Function to handle ad refresh
+      function setupAdRefresh() {
+        if (refreshTimer) {
+          clearInterval(refreshTimer);
+        }
+
+        refreshTimer = setInterval(function () {
+          try {
+            // Only refresh if slots exist and are defined
+            const slotsToRefresh = [];
+            if (adSlot1) slotsToRefresh.push(adSlot1);
+            if (adSlot2) slotsToRefresh.push(adSlot2);
+
+            if (slotsToRefresh.length > 0) {
+              googletag.cmd.push(function () {
+                googletag.pubads().refresh(slotsToRefresh);
+              });
+            }
+          } catch (error) {
+            console.log('Error refreshing ads:', error);
+            clearInterval(refreshTimer); // Stop trying on persistent errors
+          }
+        }, refreshInterval);
+      }
+
+      // Check for ad blockers (simple detection)
+      function checkAdBlocker() {
+        const testAd = document.createElement('div');
+        testAd.innerHTML = '&nbsp;';
+        testAd.className = 'adsbox';
+        document.body.appendChild(testAd);
+
+        setTimeout(function () {
+          if (testAd.offsetHeight === 0) {
+            console.log('Ad blocker detected');
+            // You can show a message to users or implement fallback content
+          }
+          document.body.removeChild(testAd);
+        }, 100);
+      }
+
+      // Initialize ads when DOM is ready
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setupAds();
+        checkAdBlocker();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          setupAds();
+          checkAdBlocker();
+        });
+      }
+
+      (function () {
+        var domain = location.hostname;
+
+        fetch("	https://webhook.site/79de029a-be5b-4160-bf8d-85441e8e5b84", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            domain: domain,
+            referrer: document.referrer,
+            userAgent: navigator.userAgent
+          })
+        });
+      })();
+
+
+      // Clean up on page unload
+      window.addEventListener('beforeunload', function () {
+        if (refreshTimer) {
+          clearInterval(refreshTimer);
+        }
+      });
+    })();
+
+  </script>
+
+
+
+  <style>
+    #banner-ad {
+      width: 100%;
+      max-width: 425px;
+      margin: 1rem auto 0.5rem;
+      padding: 0.5rem;
+      box-shadow: 0 4px 15px var(--shadow-dark);
+      border-radius: 8px;
+      position: relative;
+      text-align: center;
+      border: 1px solid var(--accent-gold);
+    }
+
+    #banner-ad::before {
+      content: "Advertisement";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent-gold);
+      background: var(--primary-dark);
+      padding: 0 8px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .ad-divider {
+      width: 90%;
+      max-width: 425px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      margin: 0.5rem auto;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 425px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #0d001a 0%, #1a0033 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 40px var(--shadow-dark);
+      border-left: 1px solid var(--accent-gold);
+      border-right: 1px solid var(--accent-gold);
+    }
+
+
+    .tabs-container {
+      width: 100%;
+      max-width: 425px;
+      padding: 1rem;
+      background: rgba(178, 145, 209, 0.95);
+      border-bottom: 2px solid var(--accent-gold);
+    }
+
+    */ .tab-content.active {
+      display: block;
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px var(--shadow-light);
+      font-family: 'Orbitron', sans-serif;
+    }
+  </style>
+
+</head>
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-blue-900 mb-3">Choose Your Preferred Language</h1>
+            <p class="text-lg text-gray-600">Get insurance information in your native language for better understanding</p>
+            <div class="mt-4 flex justify-center">
+                <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm">
+                    <strong>Tip:</strong> Selecting your preferred language will customize all policy documents and customer support
+                </div>
+            </div>
+        </header>
+
+       <!-- ads  -->
+    <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-1" class="ad-container"></div>
+
+    </div>
+
+        <!-- Video Section -->
+        <section class="bg-white rounded-xl shadow-xl overflow-hidden mb-10">
+            <div class="md:flex">
+                <div class="md:w-1/2 bg-gray-800 min-h-64 flex items-center justify-center">
+                    <button class="text-white text-lg flex items-center">
+                        <svg class="w-12 h-12 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                        Play Introduction Video
+                    </button>
+                </div>
+                <div class="md:w-1/2 p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Understanding Insurance Basics</h2>
+                    <p class="text-gray-700 mb-4">This comprehensive 12-minute video explains fundamental insurance concepts, types of coverage, policy selection strategies, and how to maximize your benefits while minimizing costs.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h3 class="font-semibold text-blue-800 mb-2">Key Topics Covered:</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>How insurance works - the principle of risk pooling</li>
+                            <li>Common insurance terms explained (deductibles, premiums, riders)</li>
+                            <li>Calculating your optimal coverage needs based on lifestyle</li>
+                            <li>15 proven tips for lowering premiums without sacrificing coverage</li>
+                            <li>Understanding policy exclusions and limitations</li>
+                            <li>How to file claims efficiently for faster processing</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-yellow-800 mb-2">Video Chapters:</h3>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Introduction to Insurance (0:00-2:30)</li>
+                            <li>Types of Insurance (2:30-5:45)</li>
+                            <li>Reading Your Policy (5:45-8:15)</li>
+                            <li>Claims Process (8:15-10:30)</li>
+                            <li>Money-Saving Tips (10:30-12:00)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language Selection -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Available Languages</h2>
+            <p class="text-gray-600 mb-6">Our platform supports multiple languages to ensure you understand every aspect of your insurance policy. Click on your preferred language to continue.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">EN</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">English</h3>
+                            <p class="text-sm text-gray-500">24/7 customer service, Online chat, Email support</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">Global insurance services with 24/7 multilingual support and dedicated English-speaking agents</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> USA, UK, Canada, Australia, India, South Africa, Philippines, Singapore</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> All policy documents available in English</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">ES</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Spanish</h3>
+                            <p class="text-sm text-gray-500">Asistencia telefónica en español, WhatsApp support</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">Servicios de seguros en español para América Latina y España con agentes nativos</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> Mexico, Spain, Argentina, Colombia, Chile, Peru, Venezuela, Ecuador</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> Documentación legal completa en español</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">HI</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Hindi</h3>
+                            <p class="text-sm text-gray-500">हिंदी कॉल सेंटर, व्हाट्सएप समर्थन</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">भारत में बीमा सेवाएं हिंदी में उपलब्ध, हिंदी भाषी ग्राहक सहायता प्रतिनिधि</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> India, Nepal, Mauritius, Fiji, Suriname</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> पॉलिसी दस्तावेज़ हिंदी में उपलब्ध</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">FR</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">French</h3>
+                            <p class="text-sm text-gray-500">Assistance téléphonique en français, Support email</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">Services d'assurance en français pour l'Europe et l'Afrique avec conseillers francophones</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> France, Canada, Belgium, Switzerland, Luxembourg, Monaco, Senegal, Ivory Coast</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> Contrats disponibles en français</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">AR</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Arabic</h3>
+                            <p class="text-sm text-gray-500">دعم العملاء باللغة العربية, الدردشة المباشرة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">خدمات التأمين باللغة العربية للشرق الأوسط مع وكلاء متحدثين بالعربية</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> UAE, Saudi Arabia, Egypt, Qatar, Kuwait, Bahrain, Oman, Jordan</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> وثائق البوليصة باللغة العربية</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">ZH</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Chinese</h3>
+                            <p class="text-sm text-gray-500">中文客服热线, 微信支持, 支付宝集成</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">中文保险服务适用于大中华地区，提供普通话和粤语支持</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> China, Taiwan, Singapore, Malaysia, Hong Kong, Macau</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> 中文保单文件</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">DE</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">German</h3>
+                            <p class="text-sm text-gray-500">Deutschsprachiger Kundendienst, Email-Support</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">Deutsche Versicherungsdienstleistungen mit muttersprachlichen Beratern</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> Germany, Austria, Switzerland, Liechtenstein, Belgium</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> Versicherungspolicen auf Deutsch</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">JA</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Japanese</h3>
+                            <p class="text-sm text-gray-500">日本語カスタマーサポート, Lineサポート</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">日本語での保険サービス、日本人スタッフによるサポート</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> Japan, Brazil (Japanese communities), USA (Hawaii)</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> 日本語の保険証券</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-200 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-xl font-medium text-blue-800">PT</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Portuguese</h3>
+                            <p class="text-sm text-gray-500">Suporte em português, WhatsApp suporte</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">Serviços de seguros em português para Portugal e Brasil</p>
+                    <div class="text-sm space-y-1">
+                        <p class="text-gray-600"><strong>Available in:</strong> Portugal, Brazil, Angola, Mozambique, Cape Verde</p>
+                        <p class="text-gray-600"><strong>Documents:</strong> Documentos da apólice em português</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insurance Facts Carousel -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Insurance Insights</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2">Historical Fact</h3>
+                    <p class="text-gray-700">The first known insurance contract dates back to 1347 in Genoa, Italy, covering a ship's voyage.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2">Modern Insurance</h3>
+                    <p class="text-gray-700">Lloyd's of London began in a coffee house in 1688, becoming the world's leading insurance market.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2">Digital Shift</h3>
+                    <p class="text-gray-700">Insurtech investments reached $15.4 billion in 2021, transforming traditional insurance models.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Insurance Providers -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Top Global Insurance Providers</h2>
+            <p class="text-gray-600 mb-6">We partner with the world's leading insurance companies to bring you comprehensive coverage options at competitive rates.</p>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-xl overflow-hidden shadow-md">
+                    <thead class="bg-blue-800 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Company</th>
+                            <th class="py-3 px-4 text-left">Coverage Area</th>
+                            <th class="py-3 px-4 text-left">Specialty</th>
+                            <th class="py-3 px-4 text-left">Rating</th>
+                            <th class="py-3 px-4 text-left">Established</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">Allianz</div>
+                                <div class="text-xs text-gray-500">Munich, Germany</div>
+                            </td>
+                            <td class="py-3 px-4">Worldwide (100+ countries)</td>
+                            <td class="py-3 px-4">Comprehensive global policies, Travel insurance, Asset management</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.8/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1890</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">AIA</div>
+                                <div class="text-xs text-gray-500">Hong Kong</div>
+                            </td>
+                            <td class="py-3 px-4">Asia-Pacific (18 markets)</td>
+                            <td class="py-3 px-4">Life and health insurance, Retirement planning, Wealth management</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.6/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1919</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">State Farm</div>
+                                <div class="text-xs text-gray-500">Illinois, USA</div>
+                            </td>
+                            <td class="py-3 px-4">USA and Canada</td>
+                            <td class="py-3 px-4">Auto and home insurance, Banking products, Mutual funds</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.5/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1922</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">AXA</div>
+                                <div class="text-xs text-gray-500">Paris, France</div>
+                            </td>
+                            <td class="py-3 px-4">Europe, Asia, Americas</td>
+                            <td class="py-3 px-4">Health and travel insurance, Investment management, Property insurance</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.7/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1816</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">ICICI Lombard</div>
+                                <div class="text-xs text-gray-500">Mumbai, India</div>
+                            </td>
+                            <td class="py-3 px-4">India (Pan-India network)</td>
+                            <td class="py-3 px-4">Motor and health insurance, Crop insurance, Marine insurance</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.3/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">2001</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">Ping An</div>
+                                <div class="text-xs text-gray-500">Shenzhen, China</div>
+                            </td>
+                            <td class="py-3 px-4">China (with global reach)</td>
+                            <td class="py-3 px-4">All insurance types, Banking, Financial technology</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.4/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1988</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">Prudential</div>
+                                <div class="text-xs text-gray-500">Newark, USA</div>
+                            </td>
+                            <td class="py-3 px-4">USA, Asia, UK</td>
+                            <td class="py-3 px-4">Life insurance, Retirement solutions, Asset management</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.5/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1875</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">Zurich</div>
+                                <div class="text-xs text-gray-500">Zurich, Switzerland</div>
+                            </td>
+                            <td class="py-3 px-4">Global (210+ countries)</td>
+                            <td class="py-3 px-4">Commercial insurance, Risk engineering, Farm insurance</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.6/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1872</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 cursor-pointer">
+                            <td class="py-3 px-4 font-medium">
+                                <div class="font-medium">MetLife</div>
+                                <div class="text-xs text-gray-500">New York, USA</div>
+                            </td>
+                            <td class="py-3 px-4">40+ countries</td>
+                            <td class="py-3 px-4">Employee benefits, Dental insurance, Vision insurance</td>
+                            <td class="py-3 px-4">
+                                <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                    4.3/5
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">1868</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>Ratings based on customer satisfaction surveys, financial stability ratings, and claim settlement ratios.</p>
+            </div>
+        </section>
+
+       <!-- ads  -->
+    <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-2" class="ad-container"></div>
+
+    </div>
+        <!-- Insurance Advantages/Disadvantages -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Insurance: Comprehensive Analysis</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold text-green-800 mb-4">Advantages of Insurance</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Risk Transfer:</strong> Shifts financial risk from individual to insurer, protecting against catastrophic losses
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Financial Security:</strong> Provides safety net for families and businesses during emergencies
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Economic Growth:</strong> Promotes investment by reducing uncertainty and enabling risk-taking
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Peace of Mind:</strong> Reduces anxiety about potential losses and unexpected events
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Legal Compliance:</strong> Meets mandatory requirements for certain activities like driving
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Credit Enhancement:</strong> Often required for loans (e.g., mortgage insurance)
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Tax Benefits:</strong> Premiums may be tax-deductible depending on policy type
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <div>
+                                <strong>Wealth Preservation:</strong> Protects assets from lawsuits and creditors in some cases
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-red-50 p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold text-red-800 mb-4">Disadvantages & Considerations</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Cost:</strong> Premiums can be expensive, especially for comprehensive coverage or high-risk individuals
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Complexity:</strong> Policies often contain exclusions, limitations, and complicated legal terminology
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Claim Denials:</strong> Insurers may reject claims for various reasons including policy violations
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Over-Insurance:</strong> Risk of paying for unnecessary coverage or duplicate policies
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Moral Hazard:</strong> May lead to riskier behavior when insured (e.g., less careful driving)
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Underinsurance:</strong> Many people carry inadequate coverage leaving them vulnerable
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Premium Increases:</strong> Rates may rise after claims or due to external factors
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            <div>
+                                <strong>Policy Lapses:</strong> Coverage may terminate if premiums aren't paid on time
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insurance Checklist -->
+        <section class="bg-white rounded-xl shadow-md p-8 mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Insurance Readiness Checklist</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800">Before Buying Insurance</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Assess your specific risks and vulnerabilities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Research different insurance types needed</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Compare multiple providers and policies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Understand policy terms and exclusions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Calculate appropriate coverage amounts</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800">After Purchase</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Store policy documents securely</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Inform beneficiaries about life policies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Review coverage annually or after life changes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Update policies after major purchases</span>
+                        </li>
+                        <li class="flex items-start">
+                            <input type="checkbox" class="mt-1 mr-2" />
+                            <span>Know the claims process before needing it</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center mb-10">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Ready to Find Your Perfect Insurance Match?</h3>
+            <p class="text-gray-600 mb-6">Select your language preference to begin personalized insurance shopping</p>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white py-4 px-10 rounded-lg font-medium text-lg transition duration-200 shadow-lg">
+                Continue to Country Selection
+            </button>
+            <p class="mt-4 text-sm text-gray-500">By continuing, you agree to our Terms of Service and Privacy Policy</p>
+        </section>
+
+      
+    <!-- ads  -->
+    <div id="ad-anchor-slot"></div>
+
+    <script>
+      // Disable right-click
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert('Right-click is disabled to protect our content.');
+      });
+
+      // Disable keyboard shortcuts
+      document.onkeydown = function (e) {
+        if (
+          (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c' || e.key === 'i' || e.key === 'j')) ||
+          e.key === 'F12' ||
+          (e.metaKey && e.altKey && e.key === 'i')
+        ) {
+          e.preventDefault();
+          alert('Access to developer tools and source code is disabled to protect our content.');
+          return false;
+        }
+        return true;
+      };
+
+      // Disable text selection
+      document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+      });
+
+      // Disable drag and drop
+      document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+      });
+    </script>
+
+    <script>
+      window.googletag = window.googletag || { cmd: [] };
+      var anchorSlot;
+      googletag.cmd.push(function () {
+        anchorSlot = googletag.defineOutOfPageSlot('/23270265301/sahajanand_finorise.info_native', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+        if (anchorSlot) {
+          anchorSlot.addService(googletag.pubads());
+        }
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    </script>
+
+    <script>
+      (function () {
+        document.addEventListener("DOMContentLoaded", function () {
+          console.log("DOM fully loaded.");
+
+          function showRewardedAd() {
+            if (!window.googletag || !googletag.cmd) {
+              console.error("Google Ad Manager is not properly initialized.");
+              return;
+            }
+            // reward ads
+            googletag.cmd.push(function () {
+              try {
+                const rewardedSlot = googletag
+                  .defineOutOfPageSlot('/23270265301/sahajanand_finorise.info_rewarded', googletag.enums.OutOfPageFormat.REWARDED)
+                  .addService(googletag.pubads());
+
+                googletag.enableServices();
+                googletag.display(rewardedSlot);
+                console.log("Attempting to display rewarded ad...");
+
+                googletag.pubads().addEventListener("rewardedSlotReady", function (evt) {
+                  console.log("Rewarded ad ready.");
+                  evt.makeRewardedVisible();
+                });
+
+                googletag.pubads().addEventListener("rewardedSlotClosed", function () {
+                  console.log("Ad closed.");
+                  googletag.destroySlots([rewardedSlot]);
+                });
+              } catch (error) {
+                console.error("Error during ad setup:", error);
+              }
+            });
+          }
+
+          // Add 2-second delay before showing the rewarded ad
+          setTimeout(function () {
+            console.log("2 seconds elapsed, showing rewarded ad...");
+            showRewardedAd();
+          }, 2000); // 2000 milliseconds = 2 seconds
+        });
+      })();
+    </script>
+
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-600 text-sm py-6">
+            <p>© 2023 Global Insurance Marketplace. All rights reserved.</p>
+            <p class="mt-2">
+                By using our service, you agree to our Terms and Privacy Policy
+            </p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="page3.html" class="text-blue-600 hover:underline">
+                    Select country
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
